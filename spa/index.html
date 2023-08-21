@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spa CAOOH</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/preloader.css">
+    <link rel="stylesheet" href="css/galeria.css">
+    <link rel="stylesheet" href="css/subir.css">
+    <!-- CDN DE ICONOS BOOTSTRAP -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+    <div id="preloader">
+        <img src="img/preloader.gif" alt="">
+    </div>
+    <script>
+        let preloader=document.getElementById("preloader");
+            setTimeout(function(){
+                preloader.style.opacity="1";
+                preloader.style.opacity="0";
+                preloader.style.visibility="hidden";
+            },2000)
+    </script>
+    <div id="inicio"></div>
+    <header id="header">
+        <div class="container">
+            <div id="logo">
+                <img src="img/logo.png" alt="">
+            </div>
+            <!-- MENU HAMBURGUESA -->
+            <div class="menu" id="menu" onclick="llamar()">
+            <label class="bi bi-list"></label>
+            </div>
+            <!-- FIN DEL MENU HAMBURGUESA -->
+            <script>
+                function llamar(){
+                    let botonera=document.getElementById("botonera");
+                        botonera.classList.toggle("botonera-open");
+                    let menu=document.getElementById("menu");
+                        menu.querySelector(".menu .bi-list").classList.toggle("bi-x-circle");
+                }
+            </script>
+            <nav class="botonera" id="botonera">
+                <ul>
+                    <li><a href="#inicio" id="active">INICIO</a></li>
+                    <li><a href="#nosotros">NOSOTROS</a></li>
+                    <li><a href="#galeria">GALERIA</a></li>
+                    <li><a href="#contactos">CONTACTOS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+
+ 
+
+    <div class="banner">
+    <div class="overlay">
+        <div class="cont-banner">
+            <h2>SPA CAOH</h2>
+            <p>Ven y Relajate con Nosotros</p>
+            <button class="boton" onclick="alert('Gracias por Suscribirse')">Suscribirse</button>
+        </div>
+    </div>
+    </div>
+
+    <a class="bi bi-arrow-up-short" id="subir" href="#inicio"></a>
+    <script>
+        window.addEventListener("scroll",Scroll);
+        function Scroll(){
+            let subir=document.getElementById("subir");
+            let posy=window.pageXOffset;
+            if(posy>100){
+                subir.style.display="block";
+            }
+            else{
+                subir.style.display="none";
+            }
+        }
+    </script>
+
+    <main id="nosotros">
+        <h3>Nosotros</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum dolorem at quasi quia esse nisi repudiandae tenetur fuga mollitia exercitationem pariatur similique, a nam animi magnam perspiciatis minima ex fugit!
+        Officiis quia omnis eos qui velit ab. Molestias placeat nobis explicabo magnam quas aliquam quaerat architecto, amet rem excepturi enim. Natus eaque nulla numquam iusto ipsam unde repellat dicta assumenda.
+        Placeat, dignissimos veniam! Deserunt veniam doloremque libero possimus officia, rem voluptas aliquam facere dolore vel voluptatibus est ipsa quidem laborum sit recusandae sed iste voluptate nam aut? Cupiditate, eaque vero.</p>
+            <img src="img/spa01.jpg" alt="" class="img-responsive"  id="imagen" onmouseover="src='img/spa01.jpg'" onmouseout="src='img/spa00.jpg'"> 
+    </main>
+   
+    <section>
+        <article>
+            <h2>NUESTRA GALERIA</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt neque rem assumenda voluptate exercitationem dignissimos ducimus explicabo harum quidem numquam nihil unde accusamus quod eum nisi non pariatur, laudantium nobis.
+            Consequuntur, assumenda quis a magnam nam vitae, non est expedita ea quas reiciendis, eveniet sint velit sit veritatis nulla beatae architecto illo autem iste. Quia eaque neque placeat sit eos?</p>
+        </article>
+        <article>
+            <button onclick="atras()"><<</button>
+            <img src="img/spa01.jpg" alt="" id="img" width="450px">
+            <button onclick="adelante()">>></button>
+        </article>
+    </section>
+    <script>
+        let num=1;
+        function adelante(){
+            num++;
+            if(num>8)
+            num=1;
+        let img=document.getElementById("img");
+            img.src="img/"+"spa0"+num+".jpg";
+        }
+        function atras(){
+            num--;
+            if(num>1)
+            num=8;
+        let img=document.getElementById("img");
+            img.src="img/"+"spa0"+num+".jpg";
+        }
+    </script>
+    <script src="js/script.js">
+
+    </script>
+</body>
+</html>

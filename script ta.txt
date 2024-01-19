@@ -1,0 +1,37 @@
+create database bdtienda;
+
+use bdtienda;
+
+create table t_categoria(
+	codcat int primary key auto_increment,
+    nomcat varchar(40)binary character set utf8 collate utf8_bin not null,
+    estcat bit not null
+)engine=InnoDB character set utf8;
+-------------
+
+create table t_producto(
+ codpro int primary key auto_increment,
+ nompro varchar(40) binary character set utf8 collate utf8_bin not null,
+ preproc double not null,
+ preprov double not null,
+ canpro double not null,
+ estpro bit not null,
+ codcat int not null,
+ foreign key (codcat) references t_categoria(codcat)
+)engine=InnoDB character set utf8;
+
+
+
+INSERT INTO t_categoria (nomcat, estcat) VALUES
+('Electrónicos', 1),
+('Ropa', 1),
+('Hogar', 1),
+('Juguetes', 1),
+('Deportes', 1);
+
+INSERT INTO t_producto (nompro, preproc, preprov, canpro, estpro, codcat) VALUES
+('Smartphone', 599.99, 499.99, 100, 1, 1),
+('Camiseta', 19.99, 12.99, 500, 1, 2),
+('Aspiradora', 149.99, 129.99, 30, 1, 3),
+('Muñeca', 29.99, 24.99, 200, 1, 4),
+('Balón de fútbol', 24.99, 19.99, 50, 1, 5);
